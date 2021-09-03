@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kyiv Lucky Ticket</title>
+
+
+    <meta name="description" content="Weather forecast from a galaxy far, far away...">
+    <meta name="robots" content="index, nofollow">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    
+    <input type="text" id="ticket" value="$$VFFDQA0AP">
+    <button onclick="getCalculationsToForms()">Check</button>
+    <p id="sum1"></p>
+    <p id="sum2"></p>
+    <p id="result"></p>
+    
+
+    <script>
+        function getAsciiCodeFromTicket(ticketCode) {
+    let chars = Array.from(ticketCode.split('$$').pop())
+
+    let charsCodes = []
+
+    chars.forEach(e => {
+        charsCodes.push( e.charCodeAt(0) )
+    });
+
+    return charsCodes
+}
+
+function charsToSumFromCharCodes(charsCodes) {
+    let charsString = charsCodes.join('')
+    
+    return charsString
+}
+
+
+function getNumbersSum(numbersString, startIndex, endIndex) {
+    let numbers = Array.from(numbersString)
+
+    let halfArray = numbers.splice(startIndex, endIndex)
+
+    let sum = 0
+
+    for (const num of halfArray) {
+        sum += parseInt(num)
+    }
+
+    return sum
+}
+
+function checkLuckyTicket(val1, val2) {
+    let diff = Math.abs(val1, val2)
+
+    if (diff === 0) {
+        return 'Lucky 🎉'
+    } else if (diff < 5) {
+        return 'Almost lucky, try again 🙌'
+    } else {
+        return 'No luck today, try again 🤏'
+    }
+}
+
+function getCalculationsToForms() {
+    let ticket = document.getElementById('ticket').value
+
+    let value1 = document.getElementById('sum1')
+    let value2 = document.getElementById('sum2')
+
+    value1.innerText = getNumbersSum(charsToSumFromCharCodes(getAsciiCodeFromTicket(ticket)), 0, 9)
+    value2.innerText = getNumbersSum(charsToSumFromCharCodes(getAsciiCodeFromTicket(ticket)), 9, 18)
+
+    let result = document.getElementById('result')
+
+    result.innerText = checkLuckyTicket(getNumbersSum(charsToSumFromCharCodes(getAsciiCodeFromTicket(ticket)), 0, 9), getNumbersSum(charsToSumFromCharCodes(getAsciiCodeFromTicket(ticket)), 9, 18))
+}
+
+const t = '$$VFFDQA0AP'
+
+// console.dir(charsToSumFromCharCodes(getAsciiCodeFromTicket(t)))
+
+console.log(getNumbersSum(charsToSumFromCharCodes(getAsciiCodeFromTicket(t)), 0, 9))
+console.log(getNumbersSum(charsToSumFromCharCodes(getAsciiCodeFromTicket(t)), 9, 18))
+
+console.log(checkLuckyTicket(getNumbersSum(charsToSumFromCharCodes(getAsciiCodeFromTicket(t)), 0, 9), getNumbersSum(charsToSumFromCharCodes(getAsciiCodeFromTicket(t)), 9, 18)))
+
+</script>
+
+</body>
+
+</html>
