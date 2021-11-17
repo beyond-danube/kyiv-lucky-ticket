@@ -7,13 +7,52 @@ function getAsciiCodeFromTicket(ticketCode) {
         charsCodes.push( e.charCodeAt(0) )
     });
 
+    console.log(charsCodes)
+
     return charsCodes
 }
 
 function charsToSumFromCharCodes(charsCodes) {
     let charsString = charsCodes.join('')
-    
+
     return charsString
+}
+
+function charsToOldSchoolTicketNumber(charsString) {
+    let numbers = Array.from(charsString)
+
+    if(numbers.length !== 18) {
+        throw new Error('Seems ticket number is invalid: ' + charsString + 'Processed numbers are: ' + numbers)
+    }
+
+    console.log('input numbers ' + numbers)
+
+    let oldScholTicketNumber = []
+
+    let tempArray = []
+
+    for (const number of numbers) {
+
+        if(tempArray.length < 3) {
+            tempArray.push(parseInt(number))
+        }
+
+        if(tempArray.length === 3) {
+            let value = tempArray[0] + tempArray[1] + tempArray[2]
+            value = value.toString().length > 1 ? value.toString().slice(-1) : value
+
+            oldScholTicketNumber.push(parseInt(value))
+
+            console.log('temp array ' + tempArray)
+
+            tempArray = []
+        }
+
+        console.log("old school number " +  oldScholTicketNumber)
+    }
+
+    return oldScholTicketNumber.join('')
+
 }
 
 
@@ -35,12 +74,12 @@ function checkLuckyTicket(val1, val2) {
     let diff = Math.abs(val1 - val2)
 
     if (diff === 0) {
-        return 'Lucky 🎉'
-    } else if (diff < 5) {
+        return 'lucky 🎉'
+    } else if (diff < 2) {
         console.log(diff)
-        return 'Almost lucky, try again 🙌'
+        return 'almost lucky, try again 🙌'
     } else {
         console.log(diff)
-        return 'No luck today, try again 🤏'
+        return 'no luck today, try again 🤏'
     }
 }
