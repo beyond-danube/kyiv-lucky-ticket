@@ -5,7 +5,7 @@ body {
     background-image:
     radial-gradient(rgba(0, 0, 0, 0) 0%, transparent 20%, black 80%), url(https://ukrainetrek.com/blog/wp-content/uploads/2013/04/kiev-russian-empire-late-19th-century-photo-1.jpg);
     background-size: cover;
-    
+    background-attachment: fixed;
 }
 
 .maincontainer {
