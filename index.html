@@ -56,18 +56,16 @@
             </div>
             <div class="row justify-content-center text-center">
                 <div class="col-md-12" style="margin-top: -70px;">
-                    <input id="ticket" value="$$VFKHSOOPI">
+                    <input id="ticket" value="$$VFKHXV1U9">
                 </div>
             </div>
             <div class="row justify-content-center text-center">
-                <div class="col-md-4 text-end">
-                    <button id="about">?</button>
-                </div>
-                <div class="col-md-8 text-start">
-                    <button id="submit" onclick="getCalculationsToForms()">Щасливий?</button>
+                <div class="col-md-12">
+                    <button id="about">?</button> <button id="submit" onclick="getCalculationsToForms()">Щасливий?</button>
                 </div>
             </div>
             <div class="row justify-content-center text-center result">
+                <p id="old"></p>
                 <p id="sum1"></p>
                 <p id="sum2"></p>
                 <p id="result"></p>
@@ -78,16 +76,30 @@
     <script>
         function getCalculationsToForms() {
             let ticket = document.getElementById('ticket').value
+
+            let acsiiCode = getAsciiCodeFromTicket(ticket)
+            let chars = charsToSumFromCharCodes(acsiiCode)
+            let oldSchoolTicketNumberValue = charsToOldSchoolTicketNumber(chars)
+
+            let fisrtSum = getNumbersSum(oldSchoolTicketNumberValue, 0, 3)
+            let lastSum = getNumbersSum(oldSchoolTicketNumberValue, 3, 6)
+
+            let oldSchoolNumber = document.getElementById('old')
+
+            oldSchoolNumber.innerText = oldSchoolTicketNumberValue
+
         
             let value1 = document.getElementById('sum1')
             let value2 = document.getElementById('sum2')
         
-            value1.innerText = getNumbersSum(charsToSumFromCharCodes(getAsciiCodeFromTicket(ticket)), 0, 9)
-            value2.innerText = getNumbersSum(charsToSumFromCharCodes(getAsciiCodeFromTicket(ticket)), 9, 18)
+            value1.innerText = fisrtSum
+            value2.innerText = lastSum
+            
+
         
             let result = document.getElementById('result')
         
-            result.innerText = checkLuckyTicket(getNumbersSum(charsToSumFromCharCodes(getAsciiCodeFromTicket(ticket)), 0, 9), getNumbersSum(charsToSumFromCharCodes(getAsciiCodeFromTicket(ticket)), 9, 18))
+            result.innerText = checkLuckyTicket(fisrtSum, lastSum)
         }
 </script>
 
