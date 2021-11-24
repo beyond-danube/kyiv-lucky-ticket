@@ -26,26 +26,32 @@
 
 
     <!-- ADD KYIV TYPE FONT
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap" rel="stylesheet">
     -->
 
-     <!-- ADD PREVIEW IMAGES
-    <meta property="og:image" content="icons/fb_preview2.png">
-    <meta property="og:image" content="icons/fb_preview.png">
-     -->
-
-    <!-- ADD ICONS
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <!-- ADD PREVIEW IMAGES
+        <meta property="og:image" content="icons/fb_preview2.png">
+        <meta property="og:image" content="icons/fb_preview.png">
     -->
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
+    <link rel="manifest" href="img/icons/site.webmanifest">
+    <link rel="mask-icon" href="img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
 </head>
 
 <body>
     <div class="container maincontainer">
         <div class="container">
             <div class="row d-flex justify-content-center text-center">
-                <div class="col">
+                <div class="col logo">
                     <img src="img/logo.png">
                 </div>
             </div>
@@ -55,12 +61,12 @@
                 </div>
             </div>
             <div class="row justify-content-center text-center">
-                <div class="col-md-12" style="margin-top: -70px;">
+                <div class="col-md-12 input-column">
                     <input id="ticket" value="$$VFKHXV1U9">
                 </div>
             </div>
             <div class="row justify-content-center text-center">
-                <div class="col-md-12">
+                <div class="col buttons">
                     <button id="about">?</button> <button id="submit" onclick="getCalculationsToForms()">Щасливий?</button>
                 </div>
             </div>
