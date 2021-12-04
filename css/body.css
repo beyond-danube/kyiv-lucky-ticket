@@ -1,3 +1,11 @@
+@font-face {
+    font-family: KyivType; font-weight: normal; src: url('../font/KyivTypeSans-Regular.ttf');    
+}
+
+@font-face {
+    font-family: KyivType; font-weight: bold; src: url('../font/KyivTypeSans-Bold.ttf');
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -6,7 +14,8 @@ body {
     radial-gradient(rgba(0, 0, 0, 0) 0%, transparent 20%, black 80%), url(https://ukrainetrek.com/blog/wp-content/uploads/2013/04/kiev-russian-empire-late-19th-century-photo-1.jpg);
     background-size: cover;
     background-attachment: fixed;
-    
+    font-family: KyivType, sans-serif;
+    font-weight: normal;
 }
 
 .logo, .buttons {
@@ -33,7 +42,7 @@ input {
     font-size: inherit;
     width: 500px;
     height: 60px;
-    text-align: center
+    text-align: center;
 }
 
 input:focus {
@@ -53,10 +62,11 @@ button {
     height: 60px;
     padding: 0;
     border: 2px #00BF7A;
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-#about {
+#about-button {
     width: 60px;
     height: 60px;
     background: rgba(0, 0, 0, 0.1);
@@ -71,6 +81,14 @@ button {
     width: 100vw;
 }
 
+h1 {
+    font-weight: bold;
+}
+
+.modal-footer {  
+    justify-content: space-between;  
+}
+
 @media screen and (max-width: 1024px) {
     .logo {
         margin: 1em;
@@ -80,4 +98,15 @@ button {
         margin: 1em;
     }
 
+    .modal-body {
+        font-size: 24px;
+    }
 }
+
+/* 
+@media screen and (min-width: 1024px) {    
+    #about-button {
+        display: none;
+    }
+}*/
+

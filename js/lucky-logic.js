@@ -25,8 +25,6 @@ function charsToOldSchoolTicketNumber(charsString) {
         throw new Error('Seems ticket number is invalid: ' + charsString + 'Processed numbers are: ' + numbers)
     }
 
-    console.log('input numbers ' + numbers)
-
     let oldScholTicketNumber = []
 
     let tempArray = []
@@ -48,7 +46,6 @@ function charsToOldSchoolTicketNumber(charsString) {
             tempArray = []
         }
 
-        console.log("old school number " +  oldScholTicketNumber)
     }
 
     return oldScholTicketNumber.join('')
@@ -74,12 +71,12 @@ function checkLuckyTicket(val1, val2) {
     let diff = Math.abs(val1 - val2)
 
     if (diff === 0) {
-        return 'lucky 🎉'
+        return 'Щасливий 🎉'
     } else if (diff < 2) {
         console.log(diff)
-        return 'almost lucky, try again 🙌'
+        return 'Майже щасливий 🙌'
     } else {
         console.log(diff)
-        return 'no luck today, try again 🤏'
+        return 'Спробуй ще 🤏'
     }
 }

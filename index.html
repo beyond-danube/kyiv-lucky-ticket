@@ -22,6 +22,7 @@
     
     <link href="css/body.css" rel="stylesheet">
 
+
     <script src="js/lucky-logic.js"></script>
 
 
@@ -57,7 +58,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <img src="img/50k.png">
+                    <img src="img/tickets/50k.png">
                 </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -67,17 +68,54 @@
             </div>
             <div class="row justify-content-center text-center">
                 <div class="col buttons">
-                    <button id="about">?</button> <button id="submit" onclick="getCalculationsToForms()">Щасливий?</button>
+                    <button id="about-button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#about-modal">?</button> <button id="submit"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#result-modal" onclick="getCalculationsToForms()">Щасливий?</button>
                 </div>
             </div>
-            <div class="row justify-content-center text-center result">
-                <p id="old"></p>
-                <p id="sum1"></p>
-                <p id="sum2"></p>
-                <p id="result"></p>
+        </div>
+
+    </div>
+
+    <div class="modal" id="about-modal" tabindex="-1" aria-labelledby="aboutProjectLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title" id="aboutProjectLabel">Про проект</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="modal-body">
+                <p>Щасливий квиточок це така міська традиція. Якщо ви не чули про таке, спитайте у батьків або старших родичів або колег, і вони вам з радістю розкажуть.</p>
+                <p>Коротко, квиток мав номер із цифр, скажімо 127217. Якщо сума перших трьох та останніх трьох однакова — квиток щасливий.</p>
+                <p>Є різні трактовки, щодо того, що з цим квиточком робити. Можна покласти в гаманець на щастя. Ще казали треба з'їсти щоб вдача прийшла.</p>
+                <p>Ми вирішили продовжити цю традицію після переходу на цифрові квитки. Скопіюйте код квитка з додатку «Київ Цифровий» та перевірту чи пощастило сьогодні.</p>
+                <p>Як саме працює перевірка можна сприйняти як магію, або ж почитати про технічні деталі.</p>
+            </div>
+            <div class="modal-footer">
+                <img src="img/with-love.png">
+            </div>
+          </div>
         </div>
     </div>
+
+    <div class="modal" id="result-modal" tabindex="-1" aria-labelledby="checkLuckyTicketLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title" id="checkLuckyTicketLabel"></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Класичний номер квитка <span id="old"></span></p>
+                <p>Сума перших: <span id="sum1"></span><br>Сума останніх: <span id="sum2"></span></p>
+            </div>
+            <div class="modal-footer">
+                <img src="img/with-love.png">
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script>
         function getCalculationsToForms() {
@@ -86,6 +124,7 @@
             let acsiiCode = getAsciiCodeFromTicket(ticket)
             let chars = charsToSumFromCharCodes(acsiiCode)
             let oldSchoolTicketNumberValue = charsToOldSchoolTicketNumber(chars)
+            
 
             let fisrtSum = getNumbersSum(oldSchoolTicketNumberValue, 0, 3)
             let lastSum = getNumbersSum(oldSchoolTicketNumberValue, 3, 6)
@@ -103,13 +142,12 @@
             
 
         
-            let result = document.getElementById('result')
+            let result = document.getElementById('checkLuckyTicketLabel')
         
             result.innerText = checkLuckyTicket(fisrtSum, lastSum)
         }
-</script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </script>
 
 </body>
 
