@@ -10,8 +10,7 @@ body {
     margin: 0;
     padding: 0;
     background-color:darkcyan;
-    background-image:
-    radial-gradient(rgba(0, 0, 0, 0) 0%, transparent 20%, black 80%), url(https://monovisions.com/wp-content/uploads/2015/06/historic-bw-photos-of-kiev-russia-ukraine-in-the-19th-century-01.jpg);
+    background-image:radial-gradient(rgba(0, 0, 0, 0) 0%, transparent 20%, black 80%), url(https://monovisions.com/wp-content/uploads/2015/06/historic-bw-photos-of-kiev-russia-ukraine-in-the-19th-century-01.jpg);
     background-size: cover;
     background-attachment: fixed;
     font-family: KyivType, sans-serif;

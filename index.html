@@ -25,12 +25,7 @@
 
     <script src="js/lucky-logic.js"></script>
     <script src="js/lucky-interaction.js"></script>
-
-
-    <!-- ADD KYIV TYPE FONT
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap" rel="stylesheet">
-    -->
+    <script src="js/img-sources-const.js"></script>
 
     <!-- ADD PREVIEW IMAGES
         <meta property="og:image" content="icons/fb_preview2.png">
@@ -59,7 +54,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <img src="img/tickets/50k.png">
+                    <img id="ticket-image" src="img/tickets/50k.png">
                 </div>
             </div>
             <div class="row justify-content-center text-center">
@@ -181,6 +176,9 @@
             result.innerText = checkLuckyTicket(fisrtSum, lastSum)
         }
 
+        window.addEventListener('load', setRandomBackground)
+        window.addEventListener('load', setReandomTicketScan)
+        window.addEventListener('load', scrollToCheckButton)        
     </script>
 
 </body>
