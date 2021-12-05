@@ -24,6 +24,7 @@
 
 
     <script src="js/lucky-logic.js"></script>
+    <script src="js/lucky-interaction.js"></script>
 
 
     <!-- ADD KYIV TYPE FONT
@@ -75,6 +76,28 @@
 
     </div>
 
+    
+    <!-- Results Modal -->
+    <div class="modal" id="result-modal" tabindex="-1" aria-labelledby="checkLuckyTicketLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title" id="checkLuckyTicketLabel"></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><span id="old"></span> — такий класичний номер квитка ми отримали з коду <span id="new"></span> «Київ Цифровий»</p>
+                <p>Рахуємо щасливість квиточка:<br>Cума перших: <span id="sum1"></span><br>Сума останніх: <span id="sum2"></span></p>
+                <p>Маєте ідею або коментар щодо проекту, або хочете почитати як це працює? <a class="nice-underline-dashed" data-bs-target="#details-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Всі деталі тут</a>.</p>
+            </div>
+            <div class="modal-footer">
+                <img src="img/with-love.png">
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- About Modal -->
     <div class="modal" id="about-modal" tabindex="-1" aria-labelledby="aboutProjectLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content">
@@ -87,7 +110,8 @@
                 <p>Коротко, квиток мав номер із цифр, скажімо 127217. Якщо сума перших трьох та останніх трьох однакова — квиток щасливий.</p>
                 <p>Є різні трактовки, щодо того, що з цим квиточком робити. Можна покласти в гаманець на щастя. Ще казали треба з'їсти щоб вдача прийшла.</p>
                 <p>Ми вирішили продовжити цю традицію після переходу на цифрові квитки. Скопіюйте код квитка з додатку «Київ Цифровий» та перевірту чи пощастило сьогодні.</p>
-                <p>Як саме працює перевірка можна сприйняти як магію, або ж почитати про технічні деталі.</p>
+                <p>Як саме працює перевірка можна сприйняти як магію, або ж почитати про <a class="nice-underline-dashed" data-bs-target="#details-modal" data-bs-toggle="modal" data-bs-dismiss="modal">технічні деталі</a>.</p>
+                <p>Якщо ви маєте архівні фото Києва, або ж квитки з різних епох та хотіли б їх показати, <a class="nice-underline-dashed" data-bs-target="#details-modal" data-bs-toggle="modal" data-bs-dismiss="modal">напишіть нам</a>.</p>
             </div>
             <div class="modal-footer">
                 <img src="img/with-love.png">
@@ -96,19 +120,27 @@
         </div>
     </div>
 
-    <div class="modal" id="result-modal" tabindex="-1" aria-labelledby="checkLuckyTicketLabel" aria-hidden="true">
+    <!-- Tech Details and Contact Modal -->
+    <div class="modal" id="details-modal" tabindex="-1" aria-labelledby="detailsLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title" id="checkLuckyTicketLabel"></h1>
+              <h1 class="modal-title" id="detailsLabel">Деталі</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Класичний номер квитка <span id="old"></span></p>
-                <p>Сума перших: <span id="sum1"></span><br>Сума останніх: <span id="sum2"></span></p>
+                <h2>Як це працює?</h2>
+                <p>Квиток у «Київ Цифровий» має цифри на великі латинські літери. Кожний символ має свій код у таблиці символів. Наприклад A — 65.</p>
+                <p>Ми беремо код квитка, прибираємо частину, яка завжди однакова — $$, отримуємо коди для кожного симполу окремо та продовимо манімуляції з отриманими числами, приводячи код квитка до «класичного» шестизначного вигляду.</p>
+                <p>Наприклад: $$VFKHXV1U9 → VFKHXV1U9 → 86,&nbsp;70,&nbsp;75,&nbsp;72,&nbsp;88,&nbsp;86,&nbsp;49,&nbsp;85,&nbsp;57 → 867075728886498557 → 8+6+7&nbsp;|&nbsp;0+7+5&nbsp;|&nbsp;7+2+8&nbsp;|&nbsp;8+8+6&nbsp;|&nbsp;4+9+8&nbsp;|&nbsp;5+5+7 → 21&nbsp;12&nbsp;17&nbsp;22&nbsp;21&nbsp;17 → 127217
+                </p>
+                <h2>Як прийняти участь?</h2>
+                <p>Якщо ви маєте будь-який коментар щодо проекту, напишіть нам в Instagram <a class="nice-underline" href="https://www.instagram.com/beyond_danube/" target="_blank">@beyound_danube</a>, або відкрийте issue на <a class="nice-underline" href="https://github.com/beyond-danube/kyiv-lucky-ticket" target="_blank">Ґітхабі проекту</a>. Якщо ви розробник там маєте бажання розвивати проект як оунер — дайте нам знати. Ми — не розробники, і розуміємо що можна зробити краще, і готові до колаборації.</p>
+                <p>Зараз ми використовуємо фотографії для фону <a class="nice-underline">Monovisions</a> та невеликий набір відсканованих квитків, які знайшлись у нас. Звісно, нам би хотілось використовувати авторські фотографії з архівів мешканців Києва, та мати ширший набір квитків з різних епох. Якщо ви маєте такий архів, і хочете ним поділитись, напишіть нам, і ваші фотографії чи квитки будуть використані у проекті, і звісно ми додамо посилання на вас якщо захочете.</p>
             </div>
             <div class="modal-footer">
                 <img src="img/with-love.png">
+                <button class="btn btn-secondary" data-bs-target="#about-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Зрозуміло</button>
             </div>
           </div>
         </div>
@@ -125,6 +157,8 @@
             let chars = charsToSumFromCharCodes(acsiiCode)
             let oldSchoolTicketNumberValue = charsToOldSchoolTicketNumber(chars)
             
+            let newTicketNumber = document.getElementById('new')
+            newTicketNumber.innerText = ticket
 
             let fisrtSum = getNumbersSum(oldSchoolTicketNumberValue, 0, 3)
             let lastSum = getNumbersSum(oldSchoolTicketNumberValue, 3, 6)

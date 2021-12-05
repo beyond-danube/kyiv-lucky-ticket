@@ -11,7 +11,7 @@ body {
     padding: 0;
     background-color:darkcyan;
     background-image:
-    radial-gradient(rgba(0, 0, 0, 0) 0%, transparent 20%, black 80%), url(https://ukrainetrek.com/blog/wp-content/uploads/2013/04/kiev-russian-empire-late-19th-century-photo-1.jpg);
+    radial-gradient(rgba(0, 0, 0, 0) 0%, transparent 20%, black 80%), url(https://monovisions.com/wp-content/uploads/2015/06/historic-bw-photos-of-kiev-russia-ukraine-in-the-19th-century-01.jpg);
     background-size: cover;
     background-attachment: fixed;
     font-family: KyivType, sans-serif;
@@ -33,6 +33,18 @@ body {
 
 .result {
     background-color: rgba(0, 0, 0, 0.25);
+}
+
+.nice-underline {
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(3, 0, 196, 0.5);
+}
+
+.nice-underline-dashed {
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(3, 0, 196, 0.5);
 }
 
 input {
