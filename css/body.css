@@ -25,11 +25,6 @@ body {
     margin-top: -1.8em;
 }
 
-.maincontainer {
-    font-size: 36px;
-    color: whitesmoke;
-}
-
 .result {
     background-color: rgba(0, 0, 0, 0.25);
 }
@@ -87,9 +82,18 @@ button {
     font-size: 20px;
 }
 
-.maincontainer {
+.main-container {
+    font-size: 36px;
+    color: whitesmoke;
+    position: relative;
     height: 100vh;
     width: 100vw;
+}
+
+.content-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 h1 {

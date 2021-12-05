@@ -42,11 +42,14 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="img/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+
+    <meta name="format-detection" content="telephone=no">
+
 </head>
 
 <body>
-    <div class="container maincontainer">
-        <div class="container">
+    <div class="container main-container">
+        <div class="container content-container">
             <div class="row d-flex justify-content-center text-center">
                 <div class="col logo">
                     <img src="img/logo.png">
@@ -83,7 +86,7 @@
             <div class="modal-body">
                 <p><span id="old"></span> — такий класичний номер квитка ми отримали з коду <span id="new"></span> «Київ Цифровий»</p>
                 <p>Рахуємо щасливість квиточка:<br>Cума перших: <span id="sum1"></span><br>Сума останніх: <span id="sum2"></span></p>
-                <p>Маєте ідею або коментар щодо проекту, або хочете почитати як це працює? <a class="nice-underline-dashed" data-bs-target="#details-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Всі деталі тут</a>.</p>
+                <p>Маєте ідею або коментар щодо проекту — <a class="nice-underline-dashed" data-bs-target="#about-modal" data-bs-toggle="modal" data-bs-dismiss="modal">напишіть нам</a>.</p><p>Xочете почитати як це працює? <a class="nice-underline-dashed" data-bs-target="#details-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Всі деталі тут</a>.</p>
             </div>
             <div class="modal-footer">
                 <img src="img/with-love.png">
@@ -103,10 +106,10 @@
             <div class="modal-body">
                 <p>Щасливий квиточок це така міська традиція. Якщо ви не чули про таке, спитайте у батьків або старших родичів або колег, і вони вам з радістю розкажуть.</p>
                 <p>Коротко, квиток мав номер із цифр, скажімо 127217. Якщо сума перших трьох та останніх трьох однакова — квиток щасливий.</p>
-                <p>Є різні трактовки, щодо того, що з цим квиточком робити. Можна покласти в гаманець на щастя. Ще казали треба з'їсти щоб вдача прийшла.</p>
                 <p>Ми вирішили продовжити цю традицію після переходу на цифрові квитки. Скопіюйте код квитка з додатку «Київ Цифровий» та перевірту чи пощастило сьогодні.</p>
                 <p>Як саме працює перевірка можна сприйняти як магію, або ж почитати про <a class="nice-underline-dashed" data-bs-target="#details-modal" data-bs-toggle="modal" data-bs-dismiss="modal">технічні деталі</a>.</p>
-                <p>Якщо ви маєте архівні фото Києва, або ж квитки з різних епох та хотіли б їх показати, <a class="nice-underline-dashed" data-bs-target="#details-modal" data-bs-toggle="modal" data-bs-dismiss="modal">напишіть нам</a>.</p>
+                <p>Якщо ви маєте архівні фото Києва, або ж квитки з різних епох та хотіли б їх показати та використати, напишіть нам в Instagram <a class="nice-underline" href="https://www.instagram.com/beyond_danube/" target="_blank">@beyound_danube</a>, або відкрийте issue на <a class="nice-underline" href="https://github.com/beyond-danube/kyiv-lucky-ticket" target="_blank">Ґітхабі проекту</a>.</p>
+                <p>Якщо ви розробник там маєте бажання розвивати проект як оунер, або зробити нативний додаток — дайте нам знати. Ми — не розробники, розуміємо що можна зробити краще, і готові до колаборації.</p>
             </div>
             <div class="modal-footer">
                 <img src="img/with-love.png">
@@ -115,7 +118,7 @@
         </div>
     </div>
 
-    <!-- Tech Details and Contact Modal -->
+    <!-- Tech Details-->
     <div class="modal" id="details-modal" tabindex="-1" aria-labelledby="detailsLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content">
@@ -126,16 +129,11 @@
             <div class="modal-body">
                 <h2>Як це працює?</h2>
                 <p>Квиток у «Київ Цифровий» має цифри на великі латинські літери. Кожний символ має свій код у таблиці символів. Наприклад A — 65.</p>
-                <p>Ми беремо код квитка, прибираємо частину, яка завжди однакова — $$, отримуємо коди для кожного симполу окремо та продовимо манімуляції з отриманими числами, приводячи код квитка до «класичного» шестизначного вигляду.</p>
-                <p>Наприклад: $$VFKHXV1U9 → VFKHXV1U9 → 86,&nbsp;70,&nbsp;75,&nbsp;72,&nbsp;88,&nbsp;86,&nbsp;49,&nbsp;85,&nbsp;57 → 867075728886498557 → 8+6+7&nbsp;|&nbsp;0+7+5&nbsp;|&nbsp;7+2+8&nbsp;|&nbsp;8+8+6&nbsp;|&nbsp;4+9+8&nbsp;|&nbsp;5+5+7 → 21&nbsp;12&nbsp;17&nbsp;22&nbsp;21&nbsp;17 → 127217
-                </p>
-                <h2>Як прийняти участь?</h2>
-                <p>Якщо ви маєте будь-який коментар щодо проекту, напишіть нам в Instagram <a class="nice-underline" href="https://www.instagram.com/beyond_danube/" target="_blank">@beyound_danube</a>, або відкрийте issue на <a class="nice-underline" href="https://github.com/beyond-danube/kyiv-lucky-ticket" target="_blank">Ґітхабі проекту</a>. Якщо ви розробник там маєте бажання розвивати проект як оунер — дайте нам знати. Ми — не розробники, і розуміємо що можна зробити краще, і готові до колаборації.</p>
-                <p>Зараз ми використовуємо фотографії для фону <a class="nice-underline">Monovisions</a> та невеликий набір відсканованих квитків, які знайшлись у нас. Звісно, нам би хотілось використовувати авторські фотографії з архівів мешканців Києва, та мати ширший набір квитків з різних епох. Якщо ви маєте такий архів, і хочете ним поділитись, напишіть нам, і ваші фотографії чи квитки будуть використані у проекті, і звісно ми додамо посилання на вас якщо захочете.</p>
+                <p>Ми беремо код квитка, прибираємо частину, яка завжди однакова — $$, отримуємо коди для кожного символу окремо та продовимо манімуляції з отриманими числами. Складаємо значення з отриманих 18 чисел групами по три, якщо сума більша 9, беремо просто останню цифру з суми, приводячи код квитка до «класичного» шестизначного вигляду.</p>
+                <p>Наприклад: $$VFKHXV1U9 → VFKHXV1U9 → 86,&nbsp;70,&nbsp;75,&nbsp;72,&nbsp;88,&nbsp;86,&nbsp;49,&nbsp;85,&nbsp;57 → 867075728886498557 → 8+6+7&nbsp;| 0+7+5&nbsp;| 7+2+8&nbsp;| 8+8+6&nbsp;| 4+9+8&nbsp;| 5+5+7 → 21&nbsp;12&nbsp;17&nbsp;22&nbsp;21&nbsp;17 → 1&nbsp;2&nbsp;7&nbsp;2&nbsp;1&nbsp;7
             </div>
             <div class="modal-footer">
                 <img src="img/with-love.png">
-                <button class="btn btn-secondary" data-bs-target="#about-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Зрозуміло</button>
             </div>
           </div>
         </div>
@@ -178,7 +176,6 @@
 
         window.addEventListener('load', setRandomBackground)
         window.addEventListener('load', setReandomTicketScan)
-        window.addEventListener('load', scrollToCheckButton)        
     </script>
 
 </body>

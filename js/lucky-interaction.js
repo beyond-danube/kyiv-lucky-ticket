@@ -1,8 +1,3 @@
-
-
-
-
-
 function setRandomBackground() {
     let bcgr = document.getElementsByTagName('body')[0]
 
@@ -17,10 +12,4 @@ function setReandomTicketScan() {
 
 function getRandomValueFromArray(arr) {
     return arr[Math.floor(Math.random()*arr.length)]
-}
-
-function scrollToCheckButton() {
-    let submit = document.getElementById('submit');
-
-    submit.scrollIntoView();
 }
