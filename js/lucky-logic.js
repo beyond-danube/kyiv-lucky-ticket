@@ -48,7 +48,7 @@ function getSubSum(charsString) {
 }
 
 function checkLuckFromCharsString(charsString) {
-    if (charsString.length !== 18) { return new LuckyResut('Схоже, код неправильниий 😔') }
+    if (charsString.length !== 18) { return new LuckyResut('Помилка 😔') }
 
     let oldScholTicketNumber = getSubSum(charsString)
     
@@ -57,7 +57,7 @@ function checkLuckFromCharsString(charsString) {
 
     let diff = Math.abs(first - last)
 
-    let r = new LuckyResut(diff === 0 ? 'Щасливий 🎉' : diff < 2 ? 'Майже 🙌' : 'Спробуй ще 🤏', first, last, oldScholTicketNumber) 
+    let r = new LuckyResut(diff === 0 ? 'Щасливий 🎉' : diff < 2 ? 'Ну майже 🙌' : 'Спробуй ще 🤏', first, last, oldScholTicketNumber) 
 
     console.log(r)
 
