@@ -18,12 +18,8 @@ function charsToSumFromCharCodes(charsCodes) {
     return charsString
 }
 
-function charsToOldSchoolTicketNumber(charsString) {
+function getSubSum(charsString) {
     let numbers = Array.from(charsString)
-
-    if(numbers.length !== 18) {
-        throw new Error('Seems ticket number is invalid: ' + charsString + 'Processed numbers are: ' + numbers)
-    }
 
     let oldScholTicketNumber = []
 
@@ -49,6 +45,23 @@ function charsToOldSchoolTicketNumber(charsString) {
     }
 
     return oldScholTicketNumber.join('')
+}
+
+function checkLuckFromCharsString(charsString) {
+    if (charsString.length !== 18) { return new LuckyResut('Схоже, код неправильниий 😔') }
+
+    let oldScholTicketNumber = getSubSum(charsString)
+    
+    let first = getNumbersSum(oldScholTicketNumber, 0, 3)
+    let last = getNumbersSum(oldScholTicketNumber, 3, 6)
+
+    let diff = Math.abs(first - last)
+
+    let r = new LuckyResut(diff === 0 ? 'Щасливий 🎉' : diff < 2 ? 'Майже 🙌' : 'Спробуй ще 🤏', first, last, oldScholTicketNumber) 
+
+    console.log(r)
+
+    return r
 
 }
 
@@ -67,16 +80,15 @@ function getNumbersSum(numbersString, startIndex, endIndex) {
     return sum
 }
 
-function checkLuckyTicket(val1, val2) {
-    let diff = Math.abs(val1 - val2)
-
-    if (diff === 0) {
-        return 'Щасливий 🎉'
-    } else if (diff < 2) {
-        console.log(diff)
-        return 'Майже щасливий 🙌'
-    } else {
-        console.log(diff)
-        return 'Спробуй ще 🤏'
+class LuckyResut {
+    result
+    sumFirst
+    sumLast
+    tikcetNumber
+    constructor(result, sumFirst, sumLast, tikcetNumber) {
+        this.result = result
+        this.sumFirst = sumFirst
+        this.sumLast = sumLast
+        this.tikcetNumber = tikcetNumber
     }
 }
