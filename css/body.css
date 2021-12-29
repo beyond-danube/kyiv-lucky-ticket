@@ -13,6 +13,7 @@ body {
     background-image:radial-gradient(rgba(0, 0, 0, 0) 0%, transparent 20%, black 80%), url(https://monovisions.com/wp-content/uploads/2015/06/historic-bw-photos-of-kiev-russia-ukraine-in-the-19th-century-01.jpg);
     background-size: cover;
     background-attachment: fixed;
+    background-position: center center;
     font-family: KyivType, sans-serif;
     font-weight: normal;
 }
@@ -104,6 +105,13 @@ h1 {
     justify-content: space-between;  
 }
 
+.modal-content  {
+    -webkit-border-radius: 40px !important;
+    -moz-border-radius: 40px !important;
+    border-radius: 40px !important;
+    padding: 20px;
+}
+
 @media screen and (max-width: 1024px) {
     .logo {
         margin: 1em;
@@ -113,8 +121,17 @@ h1 {
         margin: 1em;
     }
 
+    .modal-header h1 {
+        font-size: 36px;
+    }
+
     .modal-body {
-        font-size: 24px;
+        font-size: 28px;
+    }
+
+    .modal-dialog {
+        width: 100vw;
+        max-width: 100vw;
     }
 }
 
